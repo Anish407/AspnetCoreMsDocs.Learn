@@ -2,13 +2,18 @@
 <p>The IStartupFilter interface lives in the Microsoft.AspNetCore.Hosting.Abstractions package.
 
 </p>
-Use IStartupFilter:
+<h2> Use IStartupFilter</h2>
 
-To configure middleware at the beginning or end of an app's middleware pipeline without an explicit call to Use{Middleware}. Use IStartupFilter to add defaults to the beginning of the pipeline without explicitly registering the default middleware. IStartupFilter allows a different component to call Use{Middleware} on behalf of the app author.
-To create a pipeline of Configure methods. IStartupFilter.Configure can set a middleware to run before or after middleware added by libraries.
-IStartupFilter implements Configure, which receives and returns an Action<IApplicationBuilder>. An IApplicationBuilder defines a class to configure an app's request pipeline. For more information, see Create a middleware pipeline with IApplicationBuilder.
+<p>To configure middleware at the beginning or end of an app's middleware pipeline without an explicit call to Use{Middleware}. Use IStartupFilter to add defaults to the beginning of the pipeline without explicitly registering the default middleware. IStartupFilter allows a different component to call Use{Middleware} on behalf of the app author.</p>
+<p>To create a pipeline of Configure methods. IStartupFilter.Configure can set a middleware to run before or after middleware added by libraries.</p>
+<p>IStartupFilter implements Configure, which receives and returns an Action<IApplicationBuilder>. An IApplicationBuilder defines a class to configure an app's request pipeline. For more information, see Create a middleware pipeline with IApplicationBuilder.</p>
 
 Each IStartupFilter can add one or more middlewares in the request pipeline. The filters are invoked in the order they were added to the service container. Filters may add middleware before or after passing control to the next filter, thus they append to the beginning or end of the app pipeline..
+
+<h3>Code</h3>
+<ul>
+    <p><a href='./SampleFilter.cs'>SampleFilter.cs</a> Contains the StartupFilter that was created. Then we create a middleware (<p><a href='./SampleFilter.cs'>Here</a>) and debug the code to ensure that the filters have run before the middleware. If we have multiple implementations of IStartupFilter, then the order in which they are registered in the DI container will be the order of execution</p>
+</ul>
 
 <h2>Points to remember</h2>
 <ul>
