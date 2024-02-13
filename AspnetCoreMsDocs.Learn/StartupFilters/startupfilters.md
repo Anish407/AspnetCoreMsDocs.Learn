@@ -8,7 +8,7 @@ To configure middleware at the beginning or end of an app's middleware pipeline 
 To create a pipeline of Configure methods. IStartupFilter.Configure can set a middleware to run before or after middleware added by libraries.
 IStartupFilter implements Configure, which receives and returns an Action<IApplicationBuilder>. An IApplicationBuilder defines a class to configure an app's request pipeline. For more information, see Create a middleware pipeline with IApplicationBuilder.
 
-Each IStartupFilter can add one or more middlewares in the request pipeline. The filters are invoked in the order they were added to the service container. Filters may add middleware before or after passing control to the next filter, thus they append to the beginning or end of the app pipeline.
+Each IStartupFilter can add one or more middlewares in the request pipeline. The filters are invoked in the order they were added to the service container. Filters may add middleware before or after passing control to the next filter, thus they append to the beginning or end of the app pipeline..
 
 <h2>Points to remember</h2>
 <ul>
