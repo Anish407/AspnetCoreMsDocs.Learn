@@ -12,7 +12,9 @@ Each IStartupFilter can add one or more middlewares in the request pipeline. The
 
 <h3>Code</h3>
 <ul>
-    <p><a href='./SampleFilter.cs'>SampleFilter.cs</a> Contains the StartupFilter that was created. Then we create a middleware (<p><a href='./SampleFilter.cs'>Here</a>) and debug the code to ensure that the filters have run before the middleware. If we have multiple implementations of IStartupFilter, then the order in which they are registered in the DI container will be the order of execution</p>
+    <p><a href='./SampleFilter.cs'>SampleFilter.cs</a> Contains the StartupFilter that was created. Then we create a middleware (<p><a href='./RequestHandlingMiddleware.cs'>Here</a>) and debug the code to ensure that the filters have run before the middleware. If we have multiple implementations of IStartupFilter, then the order in which they are registered in the DI container will be the order of execution</p>
+<p>The startupFilter is registered in the DI container as below</p>
+ <code>builder.Services.AddTransient<IStartupFilter, SampleFilter>(); // register the IStartupFilter</code>
 </ul>
 
 <h2>Points to remember</h2>
