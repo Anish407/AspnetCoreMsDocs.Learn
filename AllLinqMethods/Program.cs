@@ -10,8 +10,9 @@ IEnumerable<int> intValues = new List<int>() { 1, 2, 1, 3, 4, 5 };
 // WhereMethod();
 // OfTypeMethod();
 // SkipAndTake(stringValues, intValues);
+ChunkAndCast(mixedValues, intValues);
 
-SelectAndSelectMany(stringValues);
+//SelectAndSelectMany(stringValues);
 
 
 Console.ReadLine();
@@ -105,6 +106,23 @@ void SelectAndSelectMany(IEnumerable<string> stringValues1)
     // "index: 1, value 6"   
 }
 
+void ChunkAndCast(IEnumerable<object> objects, IEnumerable<int> ints)
+{
+    objects.Cast<string>().Dump("Cast");
+
+    ints.Chunk(4).Dump("Chunk"); // splits the List into a chunk of n(items specified). In this case 2 (Opposite of SelectMany)
+}
+
+#region Immediate Execution
+// https://learn.microsoft.com/en-us/dotnet/framework/data/adonet/ef/language-reference/query-execution#deferred-query-execution
+
+#endregion
+
+
+#region Deffered Execution
+
+
+#endregion
 class Sample
 {
     public int Age { get; set; }
