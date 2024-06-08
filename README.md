@@ -5,5 +5,5 @@
   <li><a href="./AllLinqMethods/Program.cs">AllLInq Methods (Not Complete)</a></li>
   <li><a href="./Nuget.md">Nuget and caching</a></li>
   <li><a href="./MangedCodeAndCLRBasics.md">Managed Code and CLR</a></li>
-  <li><a href="./AdvancedDotNet/AutomaticMemoryManagement.md">Automatic Memory Management</a></li>
+  <li><a href="./AdvancedDotnet.md">Advanced .Net</a></li>
  </ul>
