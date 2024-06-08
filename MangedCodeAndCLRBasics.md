@@ -26,3 +26,5 @@ In this way, the CLR knows exactly what your code is doing and can effectively m
 
 > Intermediate Language is sometimes also called Common Intermediate Language (CIL) or common intermediate language (CIL).
 
+## Reference
+- https://learn.microsoft.com/en-us/dotnet/standard/managed-code
