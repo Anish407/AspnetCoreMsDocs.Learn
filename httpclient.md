@@ -46,4 +46,5 @@ Using scoped services inside a singleton or long-lived object (like HttpMessageH
 
 
 ## References
-- https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests
+- [USING HTTPCLIENTFACTORY](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests)
+- [HTTP CLIENT GUIDELINES](https://learn.microsoft.com/en-us/dotnet/fundamentals/networking/http/httpclient-guidelines)
