@@ -6,4 +6,10 @@
   <li><a href="./Nuget.md">Nuget and caching</a></li>
   <li><a href="./MangedCodeAndCLRBasics.md">Managed Code and CLR</a></li>
   <li><a href="./AdvancedDotnet.md">Advanced .Net</a></li>
+  <li><a href="./httpclient.md">HTTP CLIENT</a></li>
  </ul>
+
+
+
+
+
