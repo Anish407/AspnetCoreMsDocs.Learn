@@ -161,7 +161,18 @@ When the request hits the app.UseAuthorization() middleware:
 - If the user's claims satisfy the policy requirements, the request is allowed to proceed.
 - If the user's claims don't meet the policy requirements, the request is denied, and a 403 Forbidden response is returned.
 
+## Forbid
+An authentication scheme's forbid action is called by Authorization when an authenticated user attempts to access a resource they're not permitted to access. See ForbidAsync. Authentication forbid examples include:
 
+-  cookie authentication scheme redirecting the user to a page indicating access was forbidden.
+- A JWT bearer scheme returning a 403 result.
+- A custom authentication scheme redirecting to a page where the user can request access to the resource.
+A forbid action can let the user know:
+- They're authenticated.
+- They're not permitted to access the requested resource.
+
+## References
+- [Authentication in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/?view=aspnetcore-8.0)
 
 
 
