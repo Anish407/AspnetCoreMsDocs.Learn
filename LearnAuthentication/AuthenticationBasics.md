@@ -32,7 +32,7 @@ When there is only a single authentication scheme registered, it becomes the def
 
 > InvalidOperationException: No authenticationScheme was specified, and there was no DefaultAuthenticateScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action<AuthenticationOptions> configureOptions).
 
-### DefaultScheme
+## DefaultScheme
 When there is only a single authentication scheme registered, the single authentication scheme:
 
 Is automatically used as the DefaultScheme.
@@ -41,7 +41,7 @@ To disable automatically using the single authentication scheme as the DefaultSc
 
 ``` AppContext.SetSwitch("Microsoft.AspNetCore.Authentication.SuppressAutoDefaultScheme"). ```
 
-### Authentication scheme
+## Authentication scheme
 The authentication scheme can select which authentication handler is responsible for generating the correct set of claims.
 
 An authentication scheme is a name that corresponds to:
@@ -55,7 +55,7 @@ This claims principal will be used in the application to get the user's identity
 Similarly, when we say AddScheme, we are adding a scheme with a custom name. This will invoke the handler associated with the custom scheme name. The handler will handle the authentication process and set the HttpContext.User property with the ClaimsPrincipal that represents the authenticated user.
 So a customSessionTokenScheme, for example, will invoke the handler associated with the customSessionTokenScheme scheme and generate the claims principal.
 
-### Authentication handler
+## Authentication handler
 An authentication handler:
 
 - Is a type that implements the behavior of a scheme.
@@ -69,11 +69,11 @@ Based on the authentication scheme's configuration and the incoming request cont
 - Have methods for challenge and forbid actions for when users attempt to access resources:
 - They're unauthorized to access (forbid).When they're unauthenticated (challenge).
 
-### RemoteAuthenticationHandler<TOptions> vs AuthenticationHandler<TOptions>
+## RemoteAuthenticationHandler<TOptions> vs AuthenticationHandler<TOptions>
 RemoteAuthenticationHandler<TOptions> is the class for authentication that requires a remote authentication step. When the remote authentication step is finished, the handler calls back to the CallbackPath set by the handler. The handler finishes the authentication step using the information passed to the HandleRemoteAuthenticateAsync callback path. OAuth 2.0 and OIDC both use this pattern. JWT and cookies don't since they can directly use the bearer header and cookie to authenticate. The remotely hosted provider in this case, Is the authentication provider.
 > Examples include Facebook, Twitter, Google, Microsoft, and any other OIDC provider that handles authenticating users using the handlers mechanism.
 
-### Authenticate
+## Authenticate
 An authentication scheme's authenticate action is responsible for constructing the user's identity based on request context. It returns an AuthenticateResult indicating whether authentication was successful and, if so, the user's identity in an authentication ticket. See AuthenticateAsync. Authenticate examples include:
 
 - A cookie authentication scheme constructing the user's identity from cookies.
