@@ -7,6 +7,7 @@
   <li><a href="./MangedCodeAndCLRBasics.md">Managed Code and CLR</a></li>
   <li><a href="./AdvancedDotnet.md">Advanced .Net</a></li>
   <li><a href="./httpclient.md">HTTP CLIENT</a></li>
+  <li><a href="./LearnAuthentication/AuthenticationBasics.md">Authentication</a></li>
  </ul>
 
 
