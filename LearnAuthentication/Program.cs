@@ -8,8 +8,8 @@ using Microsoft.AspNetCore.Server.HttpSys;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
-const string jwt1secret = "aV3ryS3cur3K3yTh4tIsAtLe4st32Byt3sLng";
-const string Jwt2Secret = "ab3ryS3cur3K3yTh4tIsAtLe4st32Byt3sLng";
+const string jwt1secret = "123";
+const string Jwt2Secret = "123";
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
