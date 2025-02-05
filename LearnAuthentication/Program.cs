@@ -118,23 +118,18 @@ static Results<Ok<string>, NotFound> TokenHandler(HttpContext context)
 
 string GetBearerToken(string jwtSecretKey,  string schemeName,string audience)
 {
-    // Convert the secret key to a byte array
     byte[] keyBytes = Encoding.UTF8.GetBytes(jwtSecretKey);
 
-    // Ensure the secret key is of a valid length for HMACSHA256 (at least 256 bits/32 bytes)
     if (keyBytes.Length < 32)
     {
         throw new ArgumentException("Secret key must be at least 256 bits (32 bytes) in length.");
     }
 
-    // Create the security key
     SymmetricSecurityKey securityKey = new SymmetricSecurityKey(keyBytes);
 
-    // Create signing credentials using the security key and HMACSHA256 algorithm
     SigningCredentials credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
     
 
-    // Define token descriptor
     JwtSecurityToken jwtSecurityToken = new JwtSecurityToken(
         issuer: "myapi.com",
         audience: audience,
@@ -149,7 +144,6 @@ string GetBearerToken(string jwtSecretKey,  string schemeName,string audience)
         expires: DateTime.Now.AddMinutes(5),
         signingCredentials: credentials);
 
-    // Generate the token
     string token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
     return token;
 }
