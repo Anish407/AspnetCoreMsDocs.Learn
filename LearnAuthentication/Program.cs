@@ -8,8 +8,8 @@ using Microsoft.AspNetCore.Server.HttpSys;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
-const string jwt1secret = "123";
-const string Jwt2Secret = "123";
+const string s = "123";
+const string s2 = "123";
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -43,7 +43,7 @@ builder.Services.AddAuthentication(op =>
             ValidateAudience = true,
             ValidIssuer = "myapi.com",
             ValidAudience = "myapi",
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt1secret))
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(s))
         };
     })
     .AddJwtBearer("Jwt2",options =>
@@ -54,7 +54,7 @@ builder.Services.AddAuthentication(op =>
             ValidateAudience = true,
             ValidIssuer = "myapi.com",
             ValidAudience = "myap2",
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Jwt2Secret))
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(s2))
         };
     });
 builder.Services.AddAuthorization();
@@ -93,13 +93,13 @@ app.MapGet("Onlyjwt1", TokenHandler).RequireAuthorization(new AuthorizeAttribute
 app.MapGet("Onlyjwt2", TokenHandler).RequireAuthorization(new AuthorizeAttribute(){AuthenticationSchemes="Jwt2"});
 app.MapGet("LoginWithJwt1", (HttpContext context) =>
 {
-    var token= GetBearerToken(jwtSecretKey: jwt1secret, schemeName: "Jwt1",  "myapi");
+    var token= GetBearerToken(jwtSecretKey: s, schemeName: "Jwt1",  "myapi");
     return token;
 }).AllowAnonymous();
 
 app.MapGet("LoginWithJwt2", (HttpContext context) =>
 {
-    var token= GetBearerToken(jwtSecretKey: Jwt2Secret, schemeName: "Jwt2",  "myap2");
+    var token= GetBearerToken(jwtSecretKey: s2, schemeName: "Jwt2",  "myap2");
     return token;
 }).AllowAnonymous();
 
